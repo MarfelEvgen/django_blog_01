@@ -1,0 +1,35 @@
+h1 {
+  color: white;
+}
+
+.form_color {
+  color: #dee2e6;
+}
+
+.card-d {
+  background: #2b3035;
+  color: #dee2e6;
+  border-color: #495057;
+}
+
+.single_page {
+  color: #dee2e6;
+  border: 1px;
+  border-color: #495057;
+}
+
+.img_post {
+  border-radius: 8px;
+}
+
+.nav_color {
+  color: #dee2e6;
+}
+
+.nav_color:hover {
+  color: #adb5bd;
+}
+
+body {
+  background: #212529;
+}

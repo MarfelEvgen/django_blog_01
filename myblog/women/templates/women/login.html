@@ -1,0 +1,26 @@
+{% extends 'women/base.html' %}
+
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<div>{{ user.name }}</div>
+
+<div>{{ form.errors.error }}</div>
+
+<div class="col-lg-4">
+         <form action="{% url 'login' %}" method="post">
+             {% csrf_token %}
+        <div class="mb-3 form_color">
+            <label for="{{ form.username.id_for_label }}" class="form-label" >{{form.username.label}}</label>
+            {{ form.username }}
+        </div>
+
+        <div class="mb-3 form_color">
+            <label for="{{ form.password.id_for_label }}" class="form-label" >{{form.password.label}}</label>
+            {{ form.password }}
+        </div>
+         </form>
+</div>
+ <input class="btn btn-primary btn-block" type="submit" value="Login">
+{% endblock %}

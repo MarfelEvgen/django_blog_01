@@ -1,0 +1,36 @@
+{% extends 'women/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="single_page ">
+    <div class="row single_page ">
+        <div class="col-lg-3">
+            <div class="post-img">
+                {% if post.photo %}
+                    <img  src="{{post.photo.url}}" alt="{{post.title}}" width="100%" height="auto" class="img_post mb-6">
+                {% else %}
+                    <img  src="{% static 'women/image/image.png' %}" alt="{{post.title}}" width="100%" height="auto"
+                          class="img_post mb-6">
+                {% endif %}
+            </div>
+
+        </div>
+            <div class="col-lg-9"><a href="{{cat.get_absolute_url}}">
+                <span class="badge rounded-pill text-bg-light">{{post.cat}}</span></a>
+                <h1>{{ post.title }}</h1>
+                {{ post.content|linebreaks }}
+        </div>
+    </div>
+    <br>
+    {% for t in post.tags.all %}
+
+            <a href="{{ tag.get_absolute_url }}">
+                <span class="badge rounded-pill text-bg-info">
+                {{ t }}
+                </span>
+            </a>
+
+    {% endfor %}
+
+</div>
+{% endblock %}

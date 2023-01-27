@@ -1,0 +1,50 @@
+{% extends 'women/base.html' %}
+
+{% block content %}
+
+<h1> {{ title }} </h1>
+
+<div>{{form.not_field_errors}}</div>
+<form class="col-lg-4" action="{% url 'add_page' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+  <div class="mb-3 form_color">
+    <div class="form-group">
+        <label for="{{ form.title.id_for_label }}">{{form.title.label}}</label>
+        {{ form.title }}
+    </div>
+      <span class="text-danger">{{ form.title.errors  }}</span>
+     <div class="form-group">
+        <label for="{{ form.slug.id_for_label }}">{{form.slug.label}}</label>
+        {{ form.slug }}
+    </div>
+      <span class="text-danger">{{ form.slug.errors }}</span>
+    <div class="form-group">
+        <label for="{{ form.content.id_for_label }}">{{form.content.label}}</label>
+        {{ form.content }}
+    </div>
+      <span class="text-danger">{{ form.content.errors }}</span>
+    <div class="form-group mb-3">
+        <label for="{{ form.photo.id_for_label }}">{{form.photo.label}}</label></br>
+        {{ form.photo }}
+    </div>
+       <span class="text-danger">{{ form.photo.errors }}</span>
+    <div class="form-group">
+        {{ form.is_published }}
+        <label for="{{ form.is_published.id_for_label }}">{{form.is_published.label}}</label>
+    </div>
+        <span class="text-danger">{{ form.is_published.errors }}</span>
+    <div class="form-group">
+        <label for="{{ form.cat.id_for_label }}">{{form.cat.label}}</label>
+        {{ form.cat }}
+    </div>
+      <span class="text-danger">{{ form.cat.errors }}</span>
+
+
+
+    <div class="form-group mt-4 mb-0">
+        <input class="btn btn-primary btn-block" type="submit" value="Add post">
+    </div>
+
+
+</form>
+{% endblock %}
